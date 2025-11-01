@@ -1,0 +1,40 @@
+# POUR EXECUTION 
+
+## Creer un fichier objet .o:
+nasm -f elf64 hello.s -o hello.o
+
+## compiler le fichier .c sans linker:
+gcc -c main.c -o main.o
+
+## linker les deux emsenble:
+gcc main.o func.o -o main
+
+## creer un executable de code assembleur:
+ld hello.o -o hello
+
+# LEAR ASM
+pk rdi cest laddresse de debut de la chaine?
+
+🏷️ Les registres “rX” en 64-bit| Registre            | Usage habituel                  | Commentaire                                                          |
+| ------------------- | ------------------------------- | -------------------------------------------------------------------- |
+| **rax**             | Accumulateur / valeur de retour | Souvent utilisé pour résultats, opérations arithmétiques ou syscalls |
+| **rbx**             | Base                            | Usage libre, mais préservé sur appel de fonction (callee-saved)      |
+| **rcx**             | Compteur                        | Souvent utilisé pour boucles, shifts, ou 3e argument syscall         |
+| **rdx**             | Données                         | 2e argument pour fonctions/syscall, parfois dividende pour div       |
+| **rsi**             | Source index                    | 2e argument de fonction, source pour `movs`, `stos`                  |
+| **rdi**             | Destination index               | 1er argument de fonction                                             |
+| **rbp**             | Base pointer (frame pointer)    | Pointe sur la base de la stack frame (utile pour fonctions locales)  |
+| **rsp**             | Stack pointer                   | Toujours pointe sur le sommet de la pile                             |
+| **r8 - r15**        | Registres supplémentaires       | 3e à 8e argument de fonction (System V), usage libre                 |
+| **rip**             | Instruction pointer             | Ne s’écrit pas directement, indique l’instruction en cours           |
+| **eflags / rflags** | Flags CPU                       | Contient ZF, CF, SF… utilisés par `cmp`, `je`…                       |
+
+⚡ Petit mémo des registres “arguments” selon System V 64-bit Linux
+| Argument | Registre |
+| -------- | -------- |
+| 1er      | rdi      |
+| 2e       | rsi      |
+| 3e       | rdx      |
+| 4e       | rcx      |
+| 5e       | r8       |
+| 6e       | r9       |
