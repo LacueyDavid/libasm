@@ -1,2 +1,63 @@
-*.o 
+# --- Fichiers binaires ---
+*.o
+*.a
+*.so
+*.out
+*.exe
+*.dll
+
+# --- Fichiers JSON ---
 *.json
+
+# --- Fichiers de log ---
+*.log
+
+# --- Fichiers temporaires ---
+*~
+*.tmp
+*.swp
+*.swo
+*.bak
+*.old
+*.save
+
+# --- Dossiers de build / compilation ---
+build/
+bin/
+obj/
+dist/
+out/
+.debug/
+.cache/
+
+# --- Fichiers générés par l'éditeur ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Fichiers de dépendances ---
+node_modules/
+vendor/
+
+# --- Fichiers systèmes ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Fichiers de test ---
+*.gcda
+*.gcno
+*.gcov
+testwr*.txt
+
+# --- Environnements virtuels ---
+venv/
+.env/
+.envrc
+
+# --- Archives et backups ---
+*.zip
+*.tar
+*.gz
+*.bz2
+*.xz
